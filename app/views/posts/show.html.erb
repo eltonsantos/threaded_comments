@@ -10,7 +10,9 @@
       <%= link_to @post, method: :delete, data: { confirm: 'Are you sure?' } do %>
         <i class="remove red icon"></i>
       <% end %>
-      <%= @post.created_at %>
+      <%= @post.created_at.strftime("%d/%m/%Y") %>
+      <i class="user teal icon"></i><%= @post.user.email %>
+
       <div class="ui button right floated">
         <%= link_to 'Back', posts_path %>
       </div>
@@ -20,14 +22,12 @@
   </div>
 </div>
 
-<div class="ui comments">
+<div class="ui minimal comments">
 
   <h3 class="ui dividing teal header">Comments</h3>
-  
+
   <% if @post.comments.exists? %>
-    <ul>
-      <%= render partial: 'comments/comment', collection: @post.comments %>
-    </ul>
+    <%= render partial: 'comments/comment', collection: @post.comments %>
   <% else %>
     <div class="ui info message">
       <i class="info circle icon"></i>

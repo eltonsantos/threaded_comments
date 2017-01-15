@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(function (){
+  $(".form-show").click(function(){
+    $(".form-reply").toggle();
+  });
+});
