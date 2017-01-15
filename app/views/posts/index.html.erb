@@ -19,6 +19,9 @@
           <%= link_to post, method: :delete, data: { confirm: 'Are you sure?' } do %>
             <i class="remove icon"></i>
           <% end %>
+          <div class="ui right floated">
+            <%= post.created_at %>
+          </div>
         </div>
         <div class="description"><%= post.message %></div>
       </div>

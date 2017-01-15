@@ -1,0 +1,28 @@
+<li>
+  <div class="comment">
+    <div class="content">
+      <a class="author"><%= current_user.email %></a>
+      <div class="metadata">
+        <span class="date"><%= comment.created_at %></span>
+      </div>
+      <div class="text">
+        <%= comment.body %>
+      </div>
+      <div class="actions">
+        <a class="reply">Reply</a>
+      </div>
+    </div>
+  </div>
+
+  <%= form_for [comment, Comment.new] do |f| %>
+    <div class="text">
+      <%= f.text_area :body, placeholder: "Add a Reply" %>
+    </div>
+    <%= f.submit "Reply"  %>
+  <% end %>
+
+  <ul>
+    <%= render partial: 'comments/comment', collection: comment.comments %>
+  </ul>
+  
+</li>
