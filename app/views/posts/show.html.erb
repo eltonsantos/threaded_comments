@@ -1,14 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>Message:</strong>
-  <%= @post.message %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<div class="item">
+  <div class="content">
+    <h1 class="ui orange header"><%= @post.title %></h1>
+    <div class="meta">
+      <%= link_to edit_post_path(@post) do %>
+        <i class="edit icon"></i>
+      <% end %>
+      <%= link_to @post, method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <i class="remove icon"></i>
+      <% end %>
+      <div class="ui button right floated">
+        <%= link_to 'Back', posts_path %>
+      </div>
+    </div>
+    <div class="ui divider"></div>
+    <div class="description"><%= @post.message %></div>
+  </div>
+</div>

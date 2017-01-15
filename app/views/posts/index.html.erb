@@ -1,41 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
+<h1 class="ui red header">
+  All Posts
+  <%= link_to 'New Post', new_post_path, class: 'ui button yellow right floated' %>
+</h1>
 
-<table class="ui celled table">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Message</th>
-      <th colspan="3">Options</th>
-    </tr>
-  </thead>
+<div class="ui divider"></div>
 
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.message %></td>
-        <td>
-          <%= link_to post do %>
-            <i class="edit icon"></i>
-          <% end %>
-        </td>
-        <td>
+<div class="ui items">
+  <% @posts.each do |post| %>
+    <div class="item">
+      <div class="content">
+        <%= link_to post.title, post, class:"ui orange header" %>
+        <div class="meta">
           <%= link_to edit_post_path(post) do %>
             <i class="edit icon"></i>
           <% end %>
-        </td>
-        <td>
           <%= link_to post, method: :delete, data: { confirm: 'Are you sure?' } do %>
-            <i class="edit icon"></i>
+            <i class="remove icon"></i>
           <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Post', new_post_path, class: 'ui button' %>
+        </div>
+        <div class="description"><%= post.message %></div>
+      </div>
+    </div>
+    <div class="ui divider"></div>
+  <% end %>
+</div>
