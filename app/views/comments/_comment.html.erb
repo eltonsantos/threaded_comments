@@ -20,6 +20,7 @@
   </div>
 
   <%= form_for([comment, Comment.new], html: {class: "ui reply form form-reply", id: "form-reply"}) do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
     <div class="field">
       <%= f.text_area :body, placeholder: "Add a Reply" %>
     </div>

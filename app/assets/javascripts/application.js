@@ -15,8 +15,21 @@
 //= require turbolinks
 //= require_tree .
 
-$(function (){
+var javascriptsApp = function() {
+
   $(".form-show").click(function(){
     $(".form-reply").toggle();
   });
+
+};
+
+var do_on_load = function(){
+   javascriptsApp();
+}
+
+$(document).ready(do_on_load);
+$(window).bind('page:change', do_on_load);
+
+$(document).on('page:fetch', function() {
+    $('#page-loading').toggle();
 });

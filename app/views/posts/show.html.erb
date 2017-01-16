@@ -24,7 +24,7 @@
 
 <div class="ui minimal comments">
 
-  <h3 class="ui dividing teal header">Comments</h3>
+  <h3 class="ui dividing teal header">Comments (<%= @post.comments.size %>)</h3>
 
   <% if @post.comments.exists? %>
     <%= render partial: 'comments/comment', collection: @post.comments %>
@@ -38,6 +38,7 @@
   <%= form_for([@post, Comment.new], html: {class:"ui reply form"}) do |f| %>
     <div class="ui divider"></div>
     <h3 class="ui teal head">Write a comment...</h3>
+    <%= f.hidden_field :user_id, value: current_user.id %>
     <div class="field">
       <%= f.text_area :body, placeholder: "Message" %>
     </div>

@@ -19,8 +19,18 @@
           <%= link_to post, method: :delete, data: { confirm: 'Are you sure?' } do %>
             <i class="remove icon"></i>
           <% end %>
+
+          <i class="comment icon"></i>
+          <% if post.comments.size > 1 %>
+            <%= post.comments.size %> Comments
+          <% elsif post.comments.size == 1 %>
+            <%= post.comments.size %> Comment
+          <% else %>
+            No comments
+          <% end %>  
+
           <div class="ui right floated">
-            <%= post.created_at %>
+            <%= post.created_at.strftime("%d/%m/%Y") %>
           </div>
         </div>
         <div class="description"><%= post.message %></div>
