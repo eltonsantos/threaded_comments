@@ -11,6 +11,7 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = @commentable.comments.new(comment_params)
+    @comment.set_user!(current_user)
 
     if @comment.save
       redirect_back(fallback_location: root_path, notice: "Your comment was successfully posted!")

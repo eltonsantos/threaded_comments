@@ -14,14 +14,7 @@
       <% if user_signed_in? %>
         <div class="ui secondary  menu">
           <%= link_to 'Posts', posts_path, class: "active item" %>
-          <%= link_to 'Users', posts_path, class: "item" %>
           <div class="right menu">
-            <div class="item">
-              <div class="ui icon input">
-                <input type="text" placeholder="Don't work...">
-                <i class="search link icon"></i>
-              </div>
-            </div>
             <% if user_signed_in? %>
               <div class="item">
                 <i class="user icon"></i>

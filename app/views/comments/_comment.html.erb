@@ -3,12 +3,7 @@
     <div class="content">
       <a class="author"><%= comment.user.email %></a>
       <div class="metadata">
-        <span class="date"><%= comment.created_at.strftime("%d/%m/%Y") %></span>
-        
-        <% if comment.user_id == current_user.id %>
-          <i class="star teal icon"></i>Author
-        <% end %>
-      
+        <span class="date"><%= comment.created_at.strftime("%d/%m/%Y") %></span>   
       </div>
       <div class="text">
         <%= comment.body %>
@@ -19,8 +14,7 @@
     </div>
   </div>
 
-  <%= form_for([comment, Comment.new], html: {class: "ui reply form form-reply", id: "form-reply"}) do |f| %>
-    <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= form_for([comment, Comment.new], html: {class: "ui reply form form-reply", id: "form-reply"}) do |f| %>  
     <div class="field">
       <%= f.text_area :body, placeholder: "Add a Reply" %>
     </div>
