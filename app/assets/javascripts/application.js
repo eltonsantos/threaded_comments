@@ -18,7 +18,7 @@
 var javascriptsApp = function() {
 
   $(".form-show").click(function(){
-    $(".form-reply").toggle();
+    $(this).parentsUntil("form-reply").next().toggle();
   });
 
 };
